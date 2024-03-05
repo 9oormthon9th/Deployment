@@ -13,7 +13,7 @@ spec:
         app: frontend-dep
     spec:
       containers:
-        - name: frontend-pod
+        - name: frontend-dep
           # 여러분의 frontend image 주소를 입력해주세요.
           image: krmp-d2hub-idock.9rum.cc/dev-test/repo_59cb53310758
 ---
