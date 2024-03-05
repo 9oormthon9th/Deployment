@@ -6,11 +6,11 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: frontend-pod
+      app: frontend-dep
   template:
     metadata:
       labels:
-        app: frontend-pod
+        app: frontend-dep
     spec:
       containers:
         - name: frontend-pod
