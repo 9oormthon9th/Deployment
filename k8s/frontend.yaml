@@ -6,14 +6,14 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: frontend-dep
+      app: frontend-pod
   template:
     metadata:
       labels:
-        app: frontend-dep
+        app: frontend-pod
     spec:
       containers:
-        - name: frontend-dep
+        - name: frontend-pod
           # 여러분의 frontend image 주소를 입력해주세요.
           image: krmp-d2hub-idock.9rum.cc/dev-test/repo_59cb53310758
 ---
@@ -23,7 +23,7 @@ metadata:
   name: frontend-svc
 spec:
   selector:
-    app: frontend-dep
+    app: frontend-pod
   ports:
     - port: 3000
       targetPort: 3000
