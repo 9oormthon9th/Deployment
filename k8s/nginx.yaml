@@ -2,19 +2,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: nginx-dep
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: nginx-pod
   template:
     metadata:
       labels:
-        app: nginx
+        app: nginx-pod
     spec:
       containers:
-      - name: nginx
+      - name: nginx-pod
         image: nginx:latest
         ports:
         - containerPort: 80
@@ -30,11 +30,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-service
+  name: nginx-svc
 spec:
   type: LoadBalancer
   selector:
-    app: nginx
+    app: nginx-pod
   ports:
     - protocol: TCP
       port: 80
@@ -47,7 +47,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
   labels:
     app.kubernetes.io/managed-by: kargocd
-  name: nginx
+  name: nginx-ing
 spec:
   rules:
     - http:
@@ -55,5 +55,5 @@ spec:
           - path: /
             pathType: Prefix
             backend:
-              serviceName: nginx-service
+              serviceName: nginx-svc
               servicePort: 80
