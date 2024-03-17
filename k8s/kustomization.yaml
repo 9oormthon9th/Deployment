@@ -6,4 +6,7 @@ resources:
 configMapGenerator:
   - name: nginx
     files:
-      - configs/default.conf
+      - configs/nginx/default.conf
+  - name: backend-secret
+    files:
+      - configs/backend/.secret
