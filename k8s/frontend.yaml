@@ -2,28 +2,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: frontend-dep
 spec:
   selector:
     matchLabels:
-      app: frontend
+      app: frontend-pod
   template:
     metadata:
       labels:
-        app: frontend
+        app: frontend-pod
     spec:
       containers:
-        - name: frontend
+        - name: frontend-pod
           # 여러분의 frontend image 주소를 입력해주세요.
-          image: krmp-d2hub-idock.9rum.cc/dev-test/repo_0d6178a4aa63
+          image: krmp-d2hub-idock.9rum.cc/dev-test/repo_59cb53310758
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend
+  name: frontend-svc
 spec:
   selector:
-    app: frontend
+    app: frontend-pod
   ports:
     - port: 3000
       targetPort: 3000
