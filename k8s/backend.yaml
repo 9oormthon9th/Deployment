@@ -21,12 +21,12 @@ spec:
               memory: 1Gi
           volumeMounts:
           - name: backend-config
-            mountPath: /app/.secret
-        volumes:
-        - name: backend-config
-          configMap:
-            name: backend-secret
-            
+            mountPath: /app/mnt
+      volumes:
+      - name: backend-config
+        configMap:
+          name: backend-secret
+
 ---
 apiVersion: v1
 kind: Service
